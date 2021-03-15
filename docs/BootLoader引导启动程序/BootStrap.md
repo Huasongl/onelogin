@@ -17,8 +17,8 @@
 
 ### 相关代码
 
-````定义初始地址，Loader文件的段地址和偏移地址，段地址左移四位等于实际基地址，因为实模式下有20根地址总线，而段地址只有16位。```
-org 0x7c00
+```定义初始地址，Loader文件的段地址和偏移地址，段地址左移四位等于实际基地址，因为实模式下有20根地址总线，而段地址只有16位。
+ org 0x7c00
  BaseOfStack equ 0x7c00
  BaseOfLoader equ 0x1000
  OffsetOfLoader equ 0x00
@@ -26,8 +26,9 @@ org 0x7c00
  SectorNumOfRootDirStart equ 19
  SectorNumOfFAT1Start equ 1
  SectorBalance equ 17
+```
 
-```FAT12的数据成员```
+```FAT12的数据成员
  jmp short Label_Start
  nop
  BS_OEMName db 'MINEboot'
@@ -49,10 +50,11 @@ org 0x7c00
  BS_VolID dd 0
  BS_VolLab db 'boot loader'
  BS_FileSysType db 'FAT12   '
+```
 
 ## 2-2代码-搜索硬盘中是否存在文件LOADER.BIN
 
-***888***
+```init
  org 0x7c00
  BaseOfStack equ 0x7c00
  Label_Start:
@@ -63,12 +65,10 @@ org 0x7c00
  mov sp, BaseOfStack
  mov ax, 0600h
  int 10h
-···
  mov ax, 0200h
  mov bx, 0000h
  mov dx, 0000h
  int 10h
-···
  mov ax, 1301h
  mov bx, 000fh
  mov dx, 0000h
@@ -79,14 +79,15 @@ org 0x7c00
  pop ax
  mov bp, StartBootMessage
  int 10h
- ···
  xor ah, ah
  xor dl, dl
  int 13h
  StartBootMessage: db "Start Booting"
  times 510-（$-$$）db 0
  dw 0xaa55
-***888***
+```
+
+### 相关描述
 
 1. mov ax,0600h int 10h触发中断服务程序，实现清屏的功能，al不为零时，实现范围滚动窗口的功能，al=滚动的列数，bh=滚动后空出的位置的颜色属性（bit0~2为字体颜色，bit3为字体亮度，bit4~6为背景颜色，bit7为字体是否闪烁）
 2. mov ax,0200h int 10h设置屏幕光标位置，bh=光标的列树，dl为光标的行数，bh=页码。
