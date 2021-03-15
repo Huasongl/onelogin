@@ -8,6 +8,3 @@
 4. 学习github的使用，学习设计操作系统。
 
 ## 目录
-* [BootLoader引导启动程序]
-    * [Boot引导程序](docs/BootLoader引导启动程序/Boot引导程序.md)
-    * [Loader引导程序](docs/BootLoader引导启动程序/Loader引导程序.md)
