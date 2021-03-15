@@ -17,19 +17,20 @@
 
 ### 相关代码
 
-```定义初始地址，Loader文件的段地址和偏移地址，段地址左移四位等于实际基地址，因为实模式下有20根地址总线，而段地址只有16位
- org 0x7c00
-    BaseOfStack equ 0x7c00
-    BaseOfLoader equ 0x1000
-    OffsetOfLoader equ 0x00
-    RootDirSectors equ 14
-    SectorNumOfRootDirStart equ 19
-    SectorNumOfFAT1Start equ 1
-    SectorBalance equ 17
+1. 定义初始地址，Loader文件的段地址和偏移地址，段地址左移四位等于实际基地址，因为实模式下有20根地址总线，而段地址只有16位。
 
+```just one
+org 0x7c00
+BaseOfStack equ 0x7c00
+BaseOfLoader equ 0x1000
+OffsetOfLoader equ 0x00
+RootDirSectors equ 14
+SectorNumOfRootDirStart equ 19
+SectorNumOfFAT1Start equ 1
+SectorBalance equ 17
 ```
 
-```FAT12的数据成员
+```FAT12
  jmp short Label_Start
  nop
  BS_OEMName db 'MINEboot'
