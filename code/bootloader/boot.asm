@@ -208,7 +208,7 @@ Func_ReadOneSector:
 	push	bp
 	mov	bp,	sp
 	sub	esp,	2
-	mov	byte	[bp - 2],	cl
+	mov	byte	[bp - 2],	c莫vl
 	push	bx
 	mov	bl,	[BPB_SecPerTrk]
 	div	bl
