@@ -46,22 +46,3 @@ else
 fi
 
 
-make  && make install 
-
-if [ $? -eq 0 ];then
-	echo "============================================================"
-	echo -e "\e[32m\e[1m\e[1m successful installed bochs-2.6.11! \e[0m"
-	echo "============================================================"
-	cd .. && /usr/bin/rm -rf bochs-2.6.11
-	echo -e "\e[32m\e[1m\e[1m clean dir bochs-2.6.11"
-	echo "============================================================"
-	echo -e "BIN dir:/usr/local/bin/    ELF name:bochs"
-	echo -e "lib/plugin dir:/usr/local/lib/bochs"
-	echo -e "bios/keymaps dir:/usr/local/share/bochs"
-	echo -e "doc dir:/usr/local/share/doc/bochs \e[0m"
-	echo "============================================================"
-else
-	echo "============================================================"
-	echo -e "\e[31m\e[1m\e[1m something error!please checkout it.\e[0m"
-	echo "============================================================"
-fi
