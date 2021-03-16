@@ -40,7 +40,7 @@ if [ $? -ne 0 ];then
 	exit 1
 else
 	echo "============================================================"
-	echo -e "\e[32m\e[1m\e[1m configure bochs-2.6.8 success!!compiling it \e[0m"
+	echo -e "\e[32m\e[1m\e[1m configure bochs-2.6.11 success!!compiling it \e[0m"
 	echo "============================================================"
 
 fi
@@ -50,10 +50,10 @@ make  && make install
 
 if [ $? -eq 0 ];then
 	echo "============================================================"
-	echo -e "\e[32m\e[1m\e[1m successful installed bochs-2.6.8! \e[0m"
+	echo -e "\e[32m\e[1m\e[1m successful installed bochs-2.6.11! \e[0m"
 	echo "============================================================"
 	cd .. && /usr/bin/rm -rf bochs-2.6.8
-	echo -e "\e[32m\e[1m\e[1m clean dir bochs-2.6.8"
+	echo -e "\e[32m\e[1m\e[1m clean dir bochs-2.6.11"
 	echo "============================================================"
 	echo -e "BIN dir:/usr/local/bin/    ELF name:bochs"
 	echo -e "lib/plugin dir:/usr/local/lib/bochs"
