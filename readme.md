@@ -6,5 +6,6 @@
 2. 书没到多久，慢慢看，尽量稳定更新。
 3. 本仓库以自己理解的操作系统体系叙述。
 4. 学习github的使用，学习设计操作系统。
+5. run bochs-sh.sh file install bochs.
 
 ## 目录
