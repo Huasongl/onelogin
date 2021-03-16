@@ -54,13 +54,15 @@ if [ ! -e tmp ];then
              mkdir tmp
 fi
 
-mount -t vfat -o loop boot.img tmp/
+sudo mount -t vfat -o loop boot.img tmp/
 
 cp loader.bin tmp/
 sync
-umount tmp/
+sudo umount tmp/
 
-rmdir tmp
+rm -rf tmp
+rm -f boot.bin
+rm -f loader.bin
 
 if [ -e /usr/local/bin/bochs ];then
     /usr/local/bin/bochs -qf bochsrc.floppy
